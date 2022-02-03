@@ -20,7 +20,7 @@
  * @subpackage Garrison_brewing/public
  * @author     Maulik Paddharia <maulikpaddhariya@gmail.com>
  */
-include 'views/garrison_brewing-public-display.php';
+//include 'views/garrison_brewing-public-display.php';
 
 class Garrison_brewing_Public {
 
@@ -122,14 +122,12 @@ class Garrison_brewing_Public {
 
 	public function beer_info_rating() {
 		$beer_id = '110569';
-		$html_response = '';
 
 		$response_body = $this->get_api_body($beer_id);
 
 		if($response_body){
-			$class_api = new Api_views();
-       		$html_response = $class_api->get_api_html($response_body);
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/garrison_brewing-public-display.php';
        	}
-		return $html_response;
+		
 	}
 }
